@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity(name = "user")
 @Table(name = "users")
-@NamedQuery(name = "user.FindUser", query = "select user from user user where username = :username")
+@NamedQuery(name = "user.FindUser", query = "select user from user user where user.username = :username")
 public class User implements Serializable {
     @SequenceGenerator(name = "sequence", sequenceName = "SEQUENCE", allocationSize = 1, initialValue = 1)
     @Id

@@ -39,21 +39,22 @@ export class PointsHandlerService {
     }
   }
 
- /* public getPoints(): string {
-    let ans: string;
+  public getPoints(): string {
+    // let ans: string;
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/x-www-form-urlencoded');
     const data = {
-      username: localStorage.getItem('username')
+      username: localStorage.getItem('currentUser')
     };
-    console.log(data);
+    console.log(data.username);
     const request = new XMLHttpRequest();
-    // tslint:disable-next-line:max-line-length
     const arr = 'username=' + encodeURIComponent(data.username);
-    request.open('GET', AppComponent.API_URL + '/main', false);
+    request.open('POST', AppComponent.API_URL + '/receive', false);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(arr);
-    if ((request.status !== 200) && (request.status !== 403)) {
+    const ans = request.responseText;
+    console.log(ans);
+    /*if ((request.status !== 200) && (request.status !== 403)) {
       console.log(request.status + ': ' + request.statusText);
       console.log(request.response);
       console.log(request.responseText);
@@ -62,9 +63,10 @@ export class PointsHandlerService {
       ans = request.response;
       console.log('AAAAAAAAAAA ' + ans);
       return ans;
-    }
+    }*/
+    return ans;
   }
-*/
+
   clear(): void {
     console.log('points-handler clear');
     const request = new XMLHttpRequest();

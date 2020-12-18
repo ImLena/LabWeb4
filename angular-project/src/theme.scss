@@ -12,21 +12,21 @@ html[data-theme='dark'] {
   --header: #373737;
   --shadow: #f65a5b;
   --link: #0ebeff;
-  --hover: #5d5c50;
+  --hover: #5d5c5d;
   --border: #f4f4f4;
 }
 html[data-theme=''] {
   --hue: 210; /* Blue */
   --accent-hue: 25; /* Orange */
   --text-color-normal: #373737;
-  --button-background: #004eaf;
+  --button-background: #56a0d3;
   --button-text-color: #f6f6f5;
   --background: #f6f6f5;
-  --header: #caccd1;
+  --header: #004b79;
   --shadow: #373737;
   --link: #004eaf;
-  --hover: #008;
-  --border: #1da1f2;
+  --hover: #56a0d3;
+  --border: #56a0d3;
 }
 
 body,.table{
@@ -34,7 +34,7 @@ body,.table{
   color: var(--text-color-normal);
 }
 #theme,#signout{
-  background: var(--background);
+  background: var(--hover);
   color: var(--text-color-normal);
   border: 0px;
   box-shadow: 2px var(--button-text-color);
@@ -50,6 +50,7 @@ body,.table{
 #header,#footer{
   background: var(--header) !important;
   box-shadow: var(--shadow) !important;
+  color: var(--button-text-color);
 }
 #link:hover{
   color: var(--link);

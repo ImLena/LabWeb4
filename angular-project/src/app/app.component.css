@@ -23,13 +23,11 @@
   font-size: 15px;
 }
 #theme:hover {
-  box-shadow: 250px 0 0 0 rgba(0,0,100,.13) inset;
+  box-shadow: 250px 0 0 0 rgba(0,0,0,.13) inset;
 }
 .head-img{
-  width: 3%;
-  margin-right: 5%;
-  margin-top: 0;
-  margin-bottom: 0;
+  width: 5%;
+  margin-left: 5%;
 }
 .footer{
   width: 100%;

@@ -2,6 +2,8 @@
 package database;
 
 import model.PointEntity;
+import model.User;
+
 import javax.ejb.Stateful;
 import javax.inject.Named;
 import javax.persistence.*;
@@ -25,9 +27,9 @@ public class PointsDB implements Serializable {
 
     }
 
-    public List<PointEntity> getPoints(String username) {
+    public List<PointEntity> getPoints(User user) {
         return em.createNamedQuery("pointEntity.FindByUser", PointEntity.class)
-                .setParameter("username", username).getResultStream().collect(Collectors.toList());
+                .setParameter("username", user).getResultStream().collect(Collectors.toList());
     }
 
     public int clear(String username) {

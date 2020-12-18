@@ -17,6 +17,7 @@ export class MainPageComponent implements OnInit {
   errorR = '';
   errorX = '';
   errorY = '';
+  what = '';
 
 
   constructor(public pointsHandlerService: PointsHandlerService, public router: Router) {
@@ -25,15 +26,22 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
     this.formName = 'Show';
     this.canvasName = 'Show';
-    // this.pointsHandlerService.getPoints();
+    this.fill();
+    // this.what = this.pointsHandlerService.getPoints();
+    // get dummy data
+    /*this.http.get('./dummy-data.json')
+      .map((response: Response) => response.json())
+      .subscribe(data => {
+        // set items to json response
+        this.allItems = data;
+      });*/
 
   }
 
-  /*  fill(): void{
-      this.pointsHandlerService.getPoints();
-      const table = document.getElementsByTagName('table').item(0);
-      table.insertRow()
-    }*/
+   fill(): void{
+      const ans = this.pointsHandlerService.getPoints();
+      document.getElementById('main-table').innerHTML = ans;
+    }
 
   clickButton(): void {
     console.log(this.point.x + 'aaa' + this.point.y);

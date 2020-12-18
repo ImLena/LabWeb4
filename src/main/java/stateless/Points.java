@@ -20,11 +20,12 @@ public class Points {
     private PointEntity point = new PointEntity();
 
     public String addPoint(double x, double y, double r, boolean result, String username) {
-        if (validate()) {;
+        if (validate()) {
+            ;
             System.out.println("Point.add works");
             PointEntity pointEntity = new PointEntity();
             User user = login.getUserByUsername(username);
-            if (user == null){
+            if (user == null) {
                 System.out.println("not authorized");
                 return "authorize";
             }
@@ -41,7 +42,8 @@ public class Points {
             return "not valid";
         }
     }
-    public int clear(String username){
+
+    public int clear(String username) {
         System.out.println("points.clear");
         return pointsDB.clear(username);
     }
@@ -57,15 +59,26 @@ public class Points {
     }
 
     public String getPoints(String username) {
-    List<PointEntity> points = pointsDB.getPoints(username);
-    String ans = "";
-    for (PointEntity p :points){
-        ans = ans + "<tr>" +
-                "<td>" + p.getX() + "</td>" +
-                "<td>" + p.getY() + "</td>" +
-                "<td>" + p.getR() + "</td>" +
-                "<td>" + p.isResult() + "</td></tr>";
-    }
+        System.out.println("user: " + username);
+        User user = login.getUserByUsername(username);
+        List<PointEntity> points = pointsDB.getPoints(user);
+        String ans = "<tr>" +
+                "<td>X</td>" +
+                "<td>Y</td>" +
+                "<td>R</td>" +
+                "<td>Result</td></tr>";
+        if (points.isEmpty()){
+            System.out.println("nooooooooooooooooooooo");
+        }
+        for (PointEntity p : points) {
+            ans = ans + "<tr>" +
+                    "<td>" + p.getX() + "</td>" +
+                    "<td>" + p.getY() + "</td>" +
+                    "<td>" + p.getR() + "</td>" +
+                    "<td>" + p.isResult() + "</td></tr>";
+        }
+        // return ans;
+        System.out.println(ans);
         return ans;
     }
 
