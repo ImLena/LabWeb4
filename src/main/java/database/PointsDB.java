@@ -32,15 +32,12 @@ public class PointsDB implements Serializable {
                 .setParameter("username", user).getResultStream().collect(Collectors.toList());
     }
 
-    public int clear(String username) {
+    public int clear(User user) {
+        List<PointEntity> pointEntities = getPoints(user);
+        for (PointEntity p: pointEntities) {
+            em.remove(p);
+        }
         System.out.println("pointsDb.clear");
-/*        em.createNamedQuery("pointEntity.Clear")
-                .setParameter("username", username).execute();*/
-        Query query = em.createQuery(
-                "DELETE FROM pointEntity AS point WHERE point.username = :username");
-        query.setParameter("username", username);
-        int result = query.executeUpdate();
-        System.out.println(result);
         return 1;
     }
 }

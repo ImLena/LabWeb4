@@ -128,7 +128,9 @@ export class MainPageComponent implements OnInit {
 
   clear(): void {
     this.pointsHandlerService.clear();
-    document.getElementById('point-history-card').innerHTML = '';
+    this.fill();
+
+    // document.getElementById('point-history-card').innerHTML = '';
     // this.router.navigate(['/clear']);
   }
 

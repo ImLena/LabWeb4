@@ -53,7 +53,6 @@ export class PointsHandlerService {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(arr);
     const ans = request.responseText;
-    console.log(ans);
     /*if ((request.status !== 200) && (request.status !== 403)) {
       console.log(request.status + ': ' + request.statusText);
       console.log(request.response);
@@ -71,7 +70,7 @@ export class PointsHandlerService {
     console.log('points-handler clear');
     const request = new XMLHttpRequest();
     // tslint:disable-next-line:max-line-length
-    const arr = 'clear=' + encodeURIComponent('yes');
+    const arr = 'username=' + encodeURIComponent(localStorage.getItem('currentUser'));
     request.open('POST', AppComponent.API_URL + '/clear', false);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(arr);

@@ -6,7 +6,6 @@ import java.io.Serializable;
 @Entity(name = "pointEntity")
 @Table(name = "pointEntity")
 @NamedQuery(name = "pointEntity.FindByUser", query = "select point from pointEntity point where point.username = :username")
-@NamedQuery(name="aaaa", query = "SELECT a FROM pointEntity a WHERE a.username = :username")
 @NamedQuery(name = "pointEntity.Clear", query = "delete from pointEntity point where point.username = :username")
 public class PointEntity implements Serializable {
 

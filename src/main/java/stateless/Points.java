@@ -45,7 +45,8 @@ public class Points {
 
     public int clear(String username) {
         System.out.println("points.clear");
-        return pointsDB.clear(username);
+        User user = login.getUserByUsername(username);
+        return pointsDB.clear(user);
     }
 
     private boolean validate() {
